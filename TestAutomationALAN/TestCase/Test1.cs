@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using TestAutomationALAN.PageObject;
+
+namespace TestAutomationALAN.TestCase
+{
+    //Clase de test para Login
+    [TestFixture]//Anotacion para que Nunit Detecte los test
+    public class Test1
+    {
+        protected IWebDriver driver;
+
+    
+        [SetUp]
+
+        public void BeforTest()
+        {
+            driver = new ChromeDriver(@"C:\Users\alanp\Downloads\chromedriver_win32");
+            driver.Manage().Window.Maximize();
+            driver.Navigate().GoToUrl("https://www.testfaceclub.com/ejercicios/");
+        }
+        [Test]//Metodo en el cual se verificara que se realizo el logueo exitosamente
+        public void SuccessLoginT()
+        {
+            try { 
+            LoginAut loginAut = new LoginAut(driver);
+            Employee employee = loginAut.LoginAs("Alan","1234");
+            }
+            catch (Exception ex) {
+                Console.WriteLine("Hubo un error" + ex.Message);
+            }
+
+
+        }
+
+
+      
+
+
+
+    }
+}
