@@ -32,6 +32,7 @@ namespace TestAutomationALAN.TestCase
             try { 
             LoginAut loginAut = new LoginAut(driver);
             Employee employee = loginAut.LoginAs("Alan","1234");
+                Console.WriteLine("Ingreso Correcto");
             }
             catch (Exception ex) {
                 Console.WriteLine("Hubo un error" + ex.Message);
