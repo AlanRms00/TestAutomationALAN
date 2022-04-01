@@ -8,7 +8,9 @@ namespace TestAutomationALAN.PageObject2
 {
     public class ProductsPage
     {
+
         protected IWebDriver Driver;
+        //Definimos como y con que se deben buscar los elementos en la web 
         protected By Name = By.Id("inputName");
         protected By Price = By.Id("inputPrice");
         protected By Model = By.Id("productModel");
@@ -24,22 +26,65 @@ namespace TestAutomationALAN.PageObject2
 
 
         public ProductsPage(IWebDriver driver){
-
+            //Driver utilizado
             Driver = driver;
             }
 
 
         public void EnterName(String name)
         {
+            //Elemento para ingresar nombre 
             WaitHandler.ElementIsPresent(Driver, Name);
             Driver.FindElement(Name).SendKeys(name);
         }
 
         public void EnterPrice(String price)
         {
+            //Elemento para ingresar precio
             WaitHandler.ElementIsPresent(Driver, Price);
                 Driver.FindElement(Price).SendKeys(price);
         }
 
+        public void SelectModel(String model)
+        {
+            //Elemento para buscar por modelo
+            WaitHandler.ElementIsPresent(Driver, Model);
+            Driver.FindElements(Model);
+
+        }
+
+        public bool FilterButton()
+        {
+            //Busca el boton "Filter" nos regresa si se encuentra presente 
+            Driver.FindElement(filter);
+            return WaitHandler.ElementIsPresent(Driver, filter);
+        }
+
+        public bool ClearButton()
+        {
+            //Busca el boton "Clear" nos regresa si se encuentra presente 
+            Driver.FindElement(Clear).Click();
+            return WaitHandler.ElementIsPresent(Driver, Clear);
+        }
+        public bool AddButton()
+        {
+            //Busca el boton "Add" nos regresa si se encuentra presente
+            Driver.FindElement(Add).Click();
+            return WaitHandler.ElementIsPresent(Driver, Add);
+        }
+        public void FormAdd()
+        {
+            //Busca el elemento nombre
+            WaitHandler.ElementIsPresent(Driver, AddProduct_Name);
+            Driver.FindElement(AddProduct_Name);
+            //Busca el elemento precio
+            WaitHandler.ElementIsPresent(Driver, AddProduct_Price);
+            Driver.FindElement(AddProduct_Price);
+            //Busca Modelo en lista
+            WaitHandler.ElementIsPresent(Driver, AddProduct_Model);
+            Driver.FindElements(AddProduct_Model);
+           
+        }
+      
     }
 }
