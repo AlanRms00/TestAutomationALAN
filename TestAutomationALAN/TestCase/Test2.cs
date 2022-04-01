@@ -52,7 +52,7 @@ namespace TestAutomationALAN.TestCase
             }
 
             catch (Exception ex) {  
-           
+           Console.WriteLine(ex.Message);
             }
         }
     
