@@ -23,7 +23,7 @@ namespace TestAutomationALAN.TestCase
         public void before2()
         {
             
-            driver = new ChromeDriver(@"C:\Users\alanp\Downloads\chromedriver_win32");
+            driver = new ChromeDriver(@"C:\Users\alanp\Downloads\chromedriver_win32 (1)\chromedriver_win32 (2)");
             driver.Manage().Window.Maximize();
         }
 

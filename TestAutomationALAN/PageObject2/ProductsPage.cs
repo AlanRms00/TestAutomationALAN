@@ -16,7 +16,7 @@ namespace TestAutomationALAN.PageObject2
         protected By Model = By.Id("productModel");
         protected By filter = By.Id("filterButton");
         protected By Clear = By.Id("ResetButton");
-        protected By Add = By.Id("Add");
+        protected By Add = By.Id("add");
         protected By DeleteRecentProducts = By.XPath("//*[@id='content']/article/div/div/div/div/section/div/div/div/div/div/div/div/div/div[2]/div[1]/div/p/button[2]");
         protected By AddProduct_Name = By.Id("inputName2");
         protected By AddProduct_Price = By.XPath("//*[@id='inputPrice']");
@@ -66,13 +66,15 @@ namespace TestAutomationALAN.PageObject2
             Driver.FindElement(Clear).Click();
             return WaitHandler.ElementIsPresent(Driver, Clear);
         }
-        public bool AddButton()
+        public void AddButton()
         {
+           Thread.Sleep(1000);
             //Busca el boton "Add" nos regresa si se encuentra presente
             Driver.FindElement(Add).Click();
-            return WaitHandler.ElementIsPresent(Driver, Add);
+            WaitHandler.ElementIsPresent(Driver, Add);
+
         }
-        public void FormAdd()
+        public void FormAdd(string AddProduct_name, string AddProduct_price, string AddProduct_model)
         {
             //Busca el elemento nombre
             WaitHandler.ElementIsPresent(Driver, AddProduct_Name);
@@ -84,6 +86,18 @@ namespace TestAutomationALAN.PageObject2
             WaitHandler.ElementIsPresent(Driver, AddProduct_Model);
             Driver.FindElements(AddProduct_Model);
            
+        }
+
+        public bool AddProductFrame()
+        {
+            Driver.FindElement(AddProduct_Add).Click();
+            return WaitHandler.ElementIsPresent(Driver, AddProduct_Add);
+        }
+
+        public bool CloseAdd()
+        {
+            Driver.FindElement(AddProduct_Close).Click();   
+            return WaitHandler.ElementIsPresent(Driver, AddProduct_Close);
         }
       
     }

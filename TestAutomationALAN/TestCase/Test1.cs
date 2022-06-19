@@ -22,7 +22,7 @@ namespace TestAutomationALAN.TestCase
 
         public void BeforTest()
         {
-            driver = new ChromeDriver(@"C:\Users\alanp\Downloads\chromedriver_win32");
+            driver = new ChromeDriver(@"C:\Users\alanp\Downloads\chromedriver_win32 (1)\chromedriver_win32 (2)");
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("https://www.testfaceclub.com/ejercicios/");
         }
