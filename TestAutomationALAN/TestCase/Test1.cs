@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 using TestAutomationALAN.PageObject;
 
 namespace TestAutomationALAN.TestCase
@@ -17,7 +12,7 @@ namespace TestAutomationALAN.TestCase
     {
         protected IWebDriver driver;
 
-    
+
         [SetUp]
 
         public void BeforTest()
@@ -29,12 +24,14 @@ namespace TestAutomationALAN.TestCase
         [Test]//Metodo en el cual se verificara que se realizo el logueo exitosamente
         public void SuccessLoginT()
         {
-            try { 
-            LoginAut loginAut = new LoginAut(driver);
-            Employee employee = loginAut.LoginAs("Alan","1234");
+            try
+            {
+                LoginAut loginAut = new LoginAut(driver);
+                Employee employee = loginAut.LoginAs("Alan", "1234");
                 Console.WriteLine("Ingreso Correcto");
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Console.WriteLine("Hubo un error" + ex.Message);
             }
 
@@ -42,7 +39,7 @@ namespace TestAutomationALAN.TestCase
         }
 
 
-      
+
 
 
 

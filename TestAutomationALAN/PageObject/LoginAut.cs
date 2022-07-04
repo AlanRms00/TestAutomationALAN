@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
+using System;
 using TestAutomationALAN.Handler;
 
 namespace TestAutomationALAN.PageObject
@@ -19,19 +14,19 @@ namespace TestAutomationALAN.PageObject
         protected By User = By.Id("user");
         protected By Password = By.Id("pass");
         protected By Enter = By.Id("loginButton");
-    
 
-    public LoginAut (IWebDriver driver)
-    {
-         Driver = driver;
+
+        public LoginAut(IWebDriver driver)
+        {
+            Driver = driver;
             driver.Title.Equals("AUT Login – TestFaceClub");
-            
 
-    }
+
+        }
         //Metodo para escribir el usuario 
         public void typeUserName(string user)
         {
-            WaitHandler.ElementIsPresent(Driver,User);
+            WaitHandler.ElementIsPresent(Driver, User);
             Driver.FindElement(User).SendKeys("Alan");
         }
 
@@ -49,9 +44,9 @@ namespace TestAutomationALAN.PageObject
             Driver.FindElement(Enter).Submit();
         }
 
-        public Employee LoginAs (String user, String password)
+        public Employee LoginAs(String user, String password)
         {
-            typeUserName(user); 
+            typeUserName(user);
             TypePass(password);
             TypeButton();
 

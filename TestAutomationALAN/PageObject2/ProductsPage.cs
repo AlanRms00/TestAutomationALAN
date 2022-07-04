@@ -1,7 +1,6 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using System;
 using System.Threading;
-using NUnit.Framework;
-using OpenQA.Selenium;
 using TestAutomationALAN.Handler;
 
 namespace TestAutomationALAN.PageObject2
@@ -25,10 +24,11 @@ namespace TestAutomationALAN.PageObject2
         protected By AddProduct_Close = By.XPath("//*[@id='myModal']/div/div/div[3]/button[1]");
 
 
-        public ProductsPage(IWebDriver driver){
+        public ProductsPage(IWebDriver driver)
+        {
             //Driver utilizado
             Driver = driver;
-            }
+        }
 
 
         public void EnterName(String name)
@@ -42,7 +42,7 @@ namespace TestAutomationALAN.PageObject2
         {
             //Elemento para ingresar precio
             WaitHandler.ElementIsPresent(Driver, Price);
-                Driver.FindElement(Price).SendKeys(price);
+            Driver.FindElement(Price).SendKeys(price);
         }
 
         public void SelectModel(String model)
@@ -68,7 +68,7 @@ namespace TestAutomationALAN.PageObject2
         }
         public void AddButton()
         {
-           Thread.Sleep(1000);
+            Thread.Sleep(1000);
             //Busca el boton "Add" nos regresa si se encuentra presente
             Driver.FindElement(Add).Click();
             WaitHandler.ElementIsPresent(Driver, Add);
@@ -85,7 +85,7 @@ namespace TestAutomationALAN.PageObject2
             //Busca Modelo en lista
             WaitHandler.ElementIsPresent(Driver, AddProduct_Model);
             Driver.FindElements(AddProduct_Model);
-           
+
         }
 
         public bool AddProductFrame()
@@ -96,9 +96,9 @@ namespace TestAutomationALAN.PageObject2
 
         public bool CloseAdd()
         {
-            Driver.FindElement(AddProduct_Close).Click();   
+            Driver.FindElement(AddProduct_Close).Click();
             return WaitHandler.ElementIsPresent(Driver, AddProduct_Close);
         }
-      
+
     }
 }
