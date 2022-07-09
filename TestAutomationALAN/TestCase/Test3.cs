@@ -28,7 +28,7 @@ namespace TestAutomationALAN.TestCase
 
         [Test]
 
-        public void FlightAround()
+        public void BtnSearch()
         {
             try
             {
